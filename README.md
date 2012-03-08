@@ -8,10 +8,8 @@ Installation
 
 * Clone to your wp-content/plugins folder
 * Add the following to your functions.php file:
-`
-$proxy = array('uri-segment' => 'http://domain.com');
-new ProxyBuilder($proxy);
-`
+`$proxy = array('uri-segment' => 'http://domain.com');`
+`new ProxyBuilder($proxy);`
 
 Disclaimer
 ----------
