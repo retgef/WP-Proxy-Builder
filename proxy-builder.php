@@ -1,10 +1,12 @@
 <?php
 /*
 Plugin Name: Proxy Builder
+Plugin URL: https://github.com/inspectorfegter/WP-Proxy-Builder
 Description: Add a proxy for a specific request URI
 Version: 0.1
 Author: Brian Fegter
 Author URI: http://coderrr.com
+License: GPLv2
 */
 class ProxyBuilder{
     protected $proxies = array();
