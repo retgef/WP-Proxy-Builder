@@ -10,6 +10,7 @@ Installation
 * Add the following to your functions.php file:
 
 `$proxy = array('uri-segment' => 'http://domain.com');`
+
 `new ProxyBuilder($proxy);`
 
 Disclaimer
