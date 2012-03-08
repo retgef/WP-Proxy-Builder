@@ -7,11 +7,21 @@ Installation
 ------------
 
 * Clone to your wp-content/plugins folder
-* Add the following to your functions.php file:
+
+Usage
+-----
+
+* Single Proxy
 
 `$proxy = array('uri-segment' => 'http://domain.com');`
 
 `new ProxyBuilder($proxy);`
+
+* Multiple Proxies
+
+`$proxies = array('uri-segment' => 'http://domain.com', 'uri-segment-2' => 'http://domain1.com');`
+
+`new ProxyBuilder($proxies);`
 
 Disclaimer
 ----------
