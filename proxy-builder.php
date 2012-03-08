@@ -135,6 +135,9 @@ class ProxyBuilder{
             case 'gif':
                 header('Content-Type: image/gif');
                 break;
+            case 'ico':
+                header('Content-Type: image/x-icon');
+                break;
             case 'zip':
                 header('Content-Type: application/zip');
                 break;
