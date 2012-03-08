@@ -13,14 +13,18 @@ License: GPLv2
  * This class allows you to commandere a URI segment and turn it into a full-fleged HTTP proxy
 */
 class ProxyBuilder{
-    protected $proxies = array();
+    protected $proxies;
     protected $host;
     
     /** Instantiate Object
      * @param array $proxies Key/Value pair of URI segment => Proxy URL. Multiple proxies may be passed.
      * @return void
     */
-    function __construct($proxies){
+    function __construct($proxies = array()){
+        
+        # Validate input (somewhat...)
+        if(empty($proxies) || !is_array($proxies))
+            return;
         
         # Set proxies and host vars
         $this->proxies = $proxies;
