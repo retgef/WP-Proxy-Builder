@@ -16,4 +16,4 @@ Installation
 Disclaimer
 ----------
 
-I am not responsible for illegal use of this plugin. Please act responsibly as this is a proof-of-concept for adding a proxy via WordPress.
+I am not responsible for illegal or ill-intended usage of this plugin. Please act responsibly as this is a proof-of-concept for adding a proxy via WordPress.

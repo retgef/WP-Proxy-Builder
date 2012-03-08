@@ -94,8 +94,3 @@ class ProxyBuilder{
     
     }
 }
-
-$proxies = array(
-    'google' => 'http://www.google.com'
-);
-new ProxyBuilder($proxies);
