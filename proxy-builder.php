@@ -21,8 +21,12 @@ class ProxyBuilder{
      * @return void
     */
     function __construct($proxies){
+        
+        # Set proxies and host vars
         $this->proxies = $proxies;
         $this->host = $_SERVER['SERVER_NAME'];
+        
+        # Hijack WordPress
         $this->register_hooks();
     }
     
