@@ -7,7 +7,7 @@ Installation
 ------------
 
 * Clone to your wp-content/plugins folder
-* add `new ProxyBuilder(array('uri-segment', 'http://domain.com'))` to your functions.php file
+* add `new ProxyBuilder(array('uri-segment', 'http://domain.com'));` to your functions.php file
 
 Disclaimer
 ----------
