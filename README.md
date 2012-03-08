@@ -6,7 +6,7 @@ Target a specific URI segment AKA 'page slug' as a HTTP proxy.
 Installation
 ------------
 
-* Clone to your wp-content/plugins folder
+* Clone to your plugins folder
 
 Usage
 -----
