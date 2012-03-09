@@ -56,6 +56,9 @@ class ProxyBuilder{
                 # Set an alternate content URL for possible modification
                 $content_url = $url;
                 
+                # Set the replacement URL base
+                $replace_url = "http://$this->host/$uri";
+                
                 # Generate an array of URI segments
                 $uri_parts = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
                 
@@ -90,8 +93,7 @@ class ProxyBuilder{
                 $response = wp_remote_get($content_url);
                 $content = wp_remote_retrieve_body($response);
                 
-                # Create replacement URL to make our proxy legit when others view our source code
-                $replace_url = "http://$this->host/$uri";
+                # Rewrite URLs make our proxy legit when others view our source code
                 $content = str_replace($url, $replace_url, $content);
                 
                 # Create a WWW replacement URL in case of mismatch of URLs in the content
@@ -99,6 +101,7 @@ class ProxyBuilder{
                 $content = str_replace($www_url, $replace_url.'/www', $content);
                 
                 # Add our proxy URL to IMG, A, LINK, SCRIPT, and FORM tags
+                $content = str_replace('src="//', 'src="http://', $content);
                 $content = str_replace('src="/', 'src="'.$replace_url.'/', $content);
                 $content = str_replace('href="/', 'href="'.$replace_url.'/', $content);
                 $content = str_replace('action="/', 'action="'.$replace_url.'/', $content);
@@ -127,39 +130,41 @@ class ProxyBuilder{
         # Set the proper header
         switch ($ext){
             case 'jpg':
-                header('Content-Type: image/jpeg');
+                $type = 'image/jpeg';
                 break;
             case 'png':
-                header('Content-Type: image/png');
+                $type = 'image/png';
                 break;
             case 'gif':
-                header('Content-Type: image/gif');
+                $type = 'image/gif';
                 break;
             case 'ico':
-                header('Content-Type: image/x-icon');
+                $type = 'image/x-icon';
                 break;
             case 'zip':
-                header('Content-Type: application/zip');
+                $type = 'application/zip';
                 break;
             case 'pdf':
-                header('Content-Type: application/pdf');
+                $type = 'application/pdf';
                 break;
             case 'txt':
-                header('Content-Type: text/plain');
+                $type = 'text/plain';
                 break;
             case 'mp3':
-                header('Content-Type: audio/mpeg');
+                $type = 'audio/mpeg';
                 break;
             case 'swf':
-                header('Content-Type: application/x-shockwave-flash');
+                $type = 'application/x-shockwave-flash';
                 break;
             case 'css':
-                header('Content-Type: text/css');
+                $type = 'text/css';
                 break;
             case 'js':
-                header('Content-Type: text/javascript');
+                $type = 'text/javascript';
                 break;
             default:
         }
+        if(isset($type))
+            header("Content-Type: $type");
     }
 }
