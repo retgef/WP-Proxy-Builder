@@ -1,7 +1,7 @@
 WP Proxy Builder
 ================
 
-Target a specific URI segment AKA 'page slug' as a HTTP proxy.
+Target a specific URI segment AKA 'page slug' as a simple HTTP proxy. This works well on sites that do not have dynamically generated JavaScript and HTML inserted after page load.
 
 Installation
 ------------
